@@ -102,6 +102,7 @@
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OperaterBase.cs" />
@@ -120,6 +121,13 @@
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -134,6 +142,10 @@
     <ProjectReference Include="..\WebApplication5.BLL\WebApplication5.BLL.csproj">
       <Project>{1e4db2af-72a0-4fec-a2f1-ec5749607230}</Project>
       <Name>WebApplication5.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication5.DBUtility\WebApplication5.DBUtility.csproj">
+      <Project>{ecffda94-dd8d-45ae-8a99-e4216ff19bbd}</Project>
+      <Name>WebApplication5.DBUtility</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApplication5.Model\WebApplication5.Model.csproj">
       <Project>{f725132b-29f0-42bc-8d18-a29d79bf7d5e}</Project>
