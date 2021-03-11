@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebApplication5.BLL;
 using WebApplication5.Model;
 
 namespace WebApplication5
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : Page
     {
-        string TiMu = "311522CC-6A44-47E4-8F7E-DCC3A71EE670";
+        private readonly string TiMu = "311522CC-6A44-47E4-8F7E-DCC3A71EE670";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +19,7 @@ namespace WebApplication5
         }
 
         /// <summary>
-        /// 获取调研题目和选项
+        ///     获取调研题目和选项
         /// </summary>
         private void GetDiaoYanList()
         {
@@ -37,8 +32,8 @@ namespace WebApplication5
             CheckBoxList1.DataSource = dataSet;
             CheckBoxList1.DataBind();
             */
-            DiaoYanXuanXiang_BLL diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
-            List<DiaoYanXuanXiang_Model> diaoYanXuanXiangModels =
+            var diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
+            var diaoYanXuanXiangModels =
                 diaoYanXuanXiangBll.GetModelList("TiMuZhuJian='" + TiMu + "'");
             CheckBoxList1.DataTextField = "Options";
             CheckBoxList1.DataValueField = "Id";
@@ -47,22 +42,19 @@ namespace WebApplication5
         }
 
         /// <summary>
-        /// 进行投票操作
+        ///     进行投票操作
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Button1_OnClick(object sender, EventArgs e)
         {
-            DiaoYanXuanXiang_BLL diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
-            DiaoYanXuanXiang_Model diaoYanXuanXiangModel = new DiaoYanXuanXiang_Model();
+            var diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
+            var diaoYanXuanXiangModel = new DiaoYanXuanXiang_Model();
             // 获取当前选择的选项id进行查询提交数量,之后让后台加1
             var id = "";
-            if (CheckBoxList1.SelectedItem != null)
-            {
-                id = CheckBoxList1.SelectedItem.Value;
-            }
+            if (CheckBoxList1.SelectedItem != null) id = CheckBoxList1.SelectedItem.Value;
 
-            if (String.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id))
             {
                 Response.Write("请检查是否勾选了内容");
                 return;
@@ -76,14 +68,14 @@ namespace WebApplication5
         }
 
         /// <summary>
-        /// 刷新数据
+        ///     刷新数据
         /// </summary>
         private void RefreshData()
         {
-            DiaoYanXuanXiang_BLL diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
-            DiaoYanXuanXiang_Model diaoYanXuanXiangModel = new DiaoYanXuanXiang_Model();
+            var diaoYanXuanXiangBll = new DiaoYanXuanXiang_BLL();
+            var diaoYanXuanXiangModel = new DiaoYanXuanXiang_Model();
 
-            List<DiaoYanXuanXiang_Model> diaoYanXuanXiangModels =
+            var diaoYanXuanXiangModels =
                 diaoYanXuanXiangBll.GetModelList("TiMuZhuJian='" + TiMu + "'");
             Repeater1.DataSource = diaoYanXuanXiangModels;
             Repeater1.DataBind();

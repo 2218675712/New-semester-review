@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>调研问卷</title>
- <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
 <body>
@@ -17,36 +17,36 @@
         </asp:CheckBoxList>
         <asp:Button runat="server" ID="Button1" Text="提交" OnClick="Button1_OnClick"/>
         <asp:Button runat="server" ID="Button2" Text="查看结果"/>
-<table>
+        <table>
             <asp:Repeater runat="server" ID="Repeater1">
                 <HeaderTemplate>
                     <thead>
                     <tr>
-    
+
                     </tr>
                     </thead>
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                         <td><%#Eval("Options") %>(<%#Eval("Numbers") %>)</td>
-                         <%-- <td><%#Eval("Numbers") %></td> --%>
-                         <td>
-                                <div style="width: 300px;">
-                                    <div class="progress">
-                                       <%-- <%#Eval("Numbers") %> --%>
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><%#Eval("Numbers") %></div>
-                                    </div>
+                        <td><%#Eval("Options") %>(<%#Eval("Numbers") %>)</td>
+                        <%-- <td><%#Eval("Numbers") %></td> --%>
+                        <td>
+                            <div style="width: 300px;">
+                                <div class="progress">
+                                    <%-- <%#Eval("Numbers") %> --%>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><%#Eval("Numbers") %></div>
                                 </div>
+                            </div>
                         </td>
-                      </tr>
+                    </tr>
                 </ItemTemplate>
             </asp:Repeater>
-</table>
+        </table>
 
 
     </div>
 </form>
-    <script >
+<script >
     /**
     * 转百分数
 * @param point 传入的数值
