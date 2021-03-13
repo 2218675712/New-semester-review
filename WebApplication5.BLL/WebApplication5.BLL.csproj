@@ -42,6 +42,7 @@
         <Compile Include="DiaoYanTiMu_BLL.cs" />
         <Compile Include="DiaoYanXuanXiang_BLL.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="V_WenJuan_BLL.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\WebApplication5.DAL\WebApplication5.DAL.csproj">
